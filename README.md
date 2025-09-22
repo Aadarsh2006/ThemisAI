@@ -62,7 +62,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 The project follows a modular, feature-based structure to ensure scalability and maintainability. Here is a complete breakdown of every file:
 
-'''
+```sh
 themis-ai-app/
 ├── .gitignore
 ├── jsconfig.json
@@ -118,7 +118,7 @@ themis-ai-app/
 │   └── geminiService.js
 └── utils/
 └── pdfUtils.js
-'''
+```
 
 
 ## 🔮 Future Scope
