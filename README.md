@@ -133,4 +133,4 @@ While Themis AI currently provides foundational legal assistance, there is immen
 ## ✍🏻Author
 
 Aadarsh Jha
-Linkedin : www.linkedin.com/in/aadarshjha09
+-- Linkedin : www.linkedin.com/in/aadarshjha09
