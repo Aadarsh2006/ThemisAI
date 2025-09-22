@@ -42,7 +42,7 @@ Make sure you have Node.js and npm installed on your machine.
 
 1.  **Clone the repository**
     ```sh
-    git clone [click here](https://github.com/Aadarsh2006/ThemisAI.git)
+    git clone https://github.com/Aadarsh2006/ThemisAI.git
     ```
 2.  **Navigate to the project directory**
     ```sh
