@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { Upload } from 'lucide-react';
-import Modal from 'components/common/Modal';
+import Modal from 'components/common/modal';
 import AIResponseRenderer from 'components/common/AIResponseRenderer';
 import ConfirmationModal from 'components/common/ConfirmationModal';
 import { categories as caseCategories } from 'data/caseCategories';
