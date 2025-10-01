@@ -1,8 +1,8 @@
 import React from 'react';
-import HeroSection from 'components/home/HeroSection';
-import ServicesGrid from 'components/home/ServicesGrid';
-import Testimonials from 'components/home/Testimonials';
-import UpcomingServices from 'components/home/UpcomingServices';
+import HeroSection from '../components/home/HeroSection';
+import ServicesGrid from '../components/home/ServicesGrid';
+import Testimonials from '../components/home/Testimonials';
+import UpcomingServices from '../components/home/UpcomingServices';
 
 const HomePage = ({ onServiceSelect }) => {
   return (
@@ -18,3 +18,4 @@ const HomePage = ({ onServiceSelect }) => {
 };
 
 export default HomePage;
+
