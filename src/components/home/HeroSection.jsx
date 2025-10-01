@@ -1,19 +1,18 @@
 import React, { useState, useRef } from 'react';
 import { Upload } from 'lucide-react';
-import Modal from '../common/Modal';
-import AIResponseRenderer from '../common/AIResponseRenderer';
-import ConfirmationModal from '../common/ConfirmationModal';
-import { categories as caseCategories } from '../../data/caseCategories';
-import { generateCaseSummary } from '../../services/geminiService';
-import { extractTextFromFile } from '../../utils/pdfUtils';
-import CaseAnalysisFlow from './CaseAnalysisFlow';
+import Modal from 'components/common/Modal';
+import AIResponseRenderer from 'components/common/AIResponseRenderer';
+import ConfirmationModal from 'components/common/ConfirmationModal';
+import { categories as caseCategories } from 'data/caseCategories';
+import { generateCaseSummary } from 'services/geminiService';
+import { extractTextFromFile } from 'utils/pdfUtils';
 
 
-const HeroSection = ({ 
-    showBlueModal, setShowBlueModal, 
-    showRedModal, setShowRedModal 
+const HeroSection = ({
+    showBlueModal, setShowBlueModal,
+    showRedModal, setShowRedModal
 }) => {
-    
+
     // State for Blue Modal (Document Analysis)
     const [documentSummary, setDocumentSummary] = useState("");
     const [isSummarizingDoc, setIsSummarizingDoc] = useState(false);
@@ -27,7 +26,7 @@ const HeroSection = ({
     const [showConfirmation, setShowConfirmation] = useState(false);
     const caseAbortControllerRef = useRef(null);
     const [caseDetails, setCaseDetails] = useState(null);
-    
+
     const buttonStyle = "rounded-3xl bg-white/95 hover:bg-white px-6 py-3 font-semibold border border-white/20 shadow-md hover:shadow-[0_0_20px_rgba(0,0,0,0.6)] transition-all";
 
     const handleFileUpload = async (event) => {
@@ -59,7 +58,7 @@ const HeroSection = ({
             docAbortControllerRef.current.abort();
         }
     };
-    
+
     const handleCaseAnalysisSubmit = (details) => {
         setCaseDetails(details);
         setShowConfirmation(true);
@@ -165,8 +164,8 @@ const HeroSection = ({
 
             {/* Red Modal for Case Analysis */}
             <Modal show={showRedModal} onClose={resetRedModal} color="red">
-                <CaseAnalysisFlow 
-                    categories={caseCategories} 
+                <CaseAnalysisFlow
+                    categories={caseCategories}
                     onSubmit={handleCaseAnalysisSubmit}
                     aiResponse={aiCaseResponse}
                     isSummarizing={isSummarizingCase}
@@ -192,7 +191,7 @@ const CaseAnalysisFlow = ({ categories, onSubmit, aiResponse, isSummarizing, res
     const [selectedOption, setSelectedOption] = useState(null);
     const [userAnswers, setUserAnswers] = useState({});
     const [selectedDocuments, setSelectedDocuments] = useState([]);
-    
+
     const resetToCategories = () => {
         setCurrentStep(0);
         setSelectedCategory(null);
@@ -201,15 +200,15 @@ const CaseAnalysisFlow = ({ categories, onSubmit, aiResponse, isSummarizing, res
         setUserAnswers({});
         setSelectedDocuments([]);
     };
-    
+
     // Handlers to navigate through the flow
     const handleCategorySelect = (cat) => { setSelectedCategory(cat); setCurrentStep(1); };
     const handleSubCategorySelect = (sub) => { setSelectedSubCategory(sub); setCurrentStep(2); };
-    const handleOptionSelect = (opt) => { 
-        setSelectedOption(opt); 
+    const handleOptionSelect = (opt) => {
+        setSelectedOption(opt);
         setUserAnswers({});
         setSelectedDocuments([]);
-        setCurrentStep(3); 
+        setCurrentStep(3);
     };
     const handleYesNoSubmit = () => setCurrentStep(4);
     const handleDocumentSubmit = () => {
@@ -225,7 +224,7 @@ const CaseAnalysisFlow = ({ categories, onSubmit, aiResponse, isSummarizing, res
     };
 
     const cardStyle = "flex flex-col items-center justify-center p-6 bg-white dark:bg-neutral-800 rounded-2xl shadow-lg border border-gray-200 dark:border-neutral-700 hover:shadow-2xl transition-all hover:scale-105 cursor-pointer text-center";
-    
+
     return (
         <div className="flex flex-col h-full">
             {/* Header / Breadcrumbs could go here if needed */}
@@ -312,3 +311,4 @@ const CaseAnalysisFlow = ({ categories, onSubmit, aiResponse, isSummarizing, res
 
 
 export default HeroSection;
+
